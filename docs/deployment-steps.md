@@ -18,16 +18,22 @@ This document provides the full deployment process for setting up a Dockerized m
 ## 2. Connect to the EC2 Instance
 
 ### Login to Server
-$ sudo su -
+`$ sudo su -`
 
 ### Install Docker
+```
 $ yum install docker -y
 $ systemctl start docker
 $ systemctl status docker
 
+```
+
 ### Install Git
+```
 $ yum install git -y
 $ git --version
+
+```
 
 ## 3. Clone the Application Repository
 
@@ -43,20 +49,27 @@ $ cd docker-voting-app-new
 ## 4. Build Docker Images
 
 ### Build Vote Service Image
+```
 $ cd vote
 $ docker build -t vote .
 $ cd ..
 
+```
+
 ### Build Result Service Image
+```
 $ cd result
 $ docker build -t result .
 $ cd ..
 
+```
 ### Build Worker Service Image
+```
 $ cd worker
 $ docker build -t worker .
 $ cd ..
 
+```
 ---
 
 ### Verify Docker Images
