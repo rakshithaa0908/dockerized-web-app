@@ -25,25 +25,24 @@ This document provides the full deployment process for setting up a Dockerized m
 $ yum install docker -y
 $ systemctl start docker
 $ systemctl status docker
-
 ```
 
 ### Install Git
 ```
 $ yum install git -y
 $ git --version
-
 ```
 
 ## 3. Clone the Application Repository
 
 ### Fork Repository
-$ https://github.com/<username>/docker-voting-app-new.git
+`$ https://github.com/username/docker-voting-app-new.git`
 
 ### Clone Repository on EC2
-$ git clone https://github.com/<your-username>/docker-voting-app-new.git
+```
+$ git clone https://github.com/your-username/docker-voting-app-new.git
 $ cd docker-voting-app-new
-
+```
 ---
 
 ## 4. Build Docker Images
@@ -53,7 +52,6 @@ $ cd docker-voting-app-new
 $ cd vote
 $ docker build -t vote .
 $ cd ..
-
 ```
 
 ### Build Result Service Image
@@ -61,19 +59,17 @@ $ cd ..
 $ cd result
 $ docker build -t result .
 $ cd ..
-
 ```
 ### Build Worker Service Image
 ```
 $ cd worker
 $ docker build -t worker .
 $ cd ..
-
 ```
 ---
 
 ### Verify Docker Images
-$ docker images
+`$ docker images`
 
 ## 5. Create Docker Compose File
 
@@ -117,20 +113,20 @@ services:
 ## 6. Deploy the Application
 
 ### Start All Services
-$ docker-compose up -d
+`$ docker-compose up -d`
 
 ### Verify Running Containers
-$ docker-compose ps
+`$ docker-compose ps`
 
 ## 7. Verify Application Access
 
 ### Open in Browser
 
 - Voting Application:
-  http://<EC2-Public-IP>:1000
+  http://EC2-Public-IP:1000
 
 - Result Application:
-  http://<EC2-Public-IP>:1001
+  http://EC2-Public-IP:1001
 
 If the setup is correct, the voting page and live results page will load successfully.
 

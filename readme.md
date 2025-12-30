@@ -9,7 +9,7 @@ This project demonstrates how to deploy a multi-container web application using 
 ### Docker
 A containerization platform that packages applications and their dependencies into lightweight, portable containers.
 
-###Docker Compose
+### Docker Compose
 A tool used to define and manage multi-container Docker applications using a YAML configuration file.
 
 ### Key Features
