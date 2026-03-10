@@ -1,18 +1,15 @@
-# Dockerized Web App
+# Dockerized Voting Web Application
 
-This project demonstrates how to deploy a multi-container web application using Docker and Docker Compose. The setup includes frontend services, background workers, in-memory caching, and a database, all running as isolated containers and connected through Docker networking. The guide includes concepts, architecture, deployment steps, and screenshots.
+This project demonstrates a multi-container voting web application built with Docker and Docker Compose. The app includes a frontend, backend, background workers, in-memory caching, and a database, all running in isolated containers connected through Docker networking.
 
 ---
 
 ## Concepts
 
-### Docker
-A containerization platform that packages applications and their dependencies into lightweight, portable containers.
+- **Docker**: A containerization platform that packages applications and their dependencies into lightweight, portable containers. 
+- **Docker Compose**: A tool to define and manage multi-container Docker applications using a YAML file. 
 
-### Docker Compose
-A tool used to define and manage multi-container Docker applications using a YAML configuration file.
-
-### Key Features
+### Features
 - Multi-container application deployment
 - Service-to-service communication using Docker networking
 - Isolated environments for each service
@@ -27,8 +24,7 @@ A tool used to define and manage multi-container Docker applications using a YAM
 
 ## Deployment Steps
 
-Full deployment instructions:  
-See full deployment instructions [here](docs/deployment-steps.md)
+For detailed deployment instructions, see [docs/deployment-steps.md]
 
 ---
 
@@ -37,28 +33,28 @@ See full deployment instructions [here](docs/deployment-steps.md)
 dockerized-web-app/
 │
 ├── docs/
-│ ├── deployment-steps.md 
+│ ├── deployment-steps.md # Detailed deployment instructions
 │ └── screenshots/
 │ 	├── vote.png 
 │ 	├── result.png 
 │ 	└── architecture.png # Architecture diagram
-├── result/
+├── result/ # Result service
 │ └── static/
 │   ├── style.css
 │ ├── Dockerfile
-│ ├── app.js
+│ ├── app.js # Frontend JavaScript
 │ ├── index.html
 │ ├── package-lock.json
 │ ├── package.json
-│ ├── server.js
+│ ├── server.js # Backend server
 │ ├── socket.io.js
-├── vote/
+├── vote/ # Voting service
 │ └── static/
 │   ├── style.css
 │ ├── Dockerfile
 │ ├── app.py
 │ ├── requirements.txt
-├── worker/
+├── worker/  # Background worker
 │ ├── Dockerfile
 │ ├── Program.cs
 │ ├── worker.csproj
