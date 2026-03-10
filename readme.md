@@ -42,7 +42,28 @@ dockerized-web-app/
 │ 	├── vote.png 
 │ 	├── result.png 
 │ 	└── architecture.png # Architecture diagram
-├── README.md 
+├── result/
+│ └── static/
+│   ├── style.css
+│ ├── Dockerfile
+│ ├── app.js
+│ ├── index.html
+│ ├── package-lock.json
+│ ├── package.json
+│ ├── server.js
+│ ├── socket.io.js
+├── vote/
+│ └── static/
+│   ├── style.css
+│ ├── Dockerfile
+│ ├── app.py
+│ ├── requirements.txt
+├── worker/
+│ ├── Dockerfile
+│ ├── Program.cs
+│ ├── worker.csproj
+├── README.md
+├── docker-compose.yaml
 └── LICENSE 
 ```
 
