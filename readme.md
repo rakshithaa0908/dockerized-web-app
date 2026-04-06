@@ -67,6 +67,7 @@ dockerized-web-app/
 │   └── worker.csproj
 ├── docker-compose.yaml
 ├── README.md
+├── .dockerignore
 └── LICENSE
 ```
 
