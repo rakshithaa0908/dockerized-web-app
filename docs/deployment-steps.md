@@ -41,7 +41,7 @@ $ git --version
 
 ### Fork Repository
 Fork the repository to your GitHub account:
-[https://github.com/username/docker-voting-app-new]
+https://github.com/username/docker-voting-app-new
 
 ### Clone Repository on EC2
 ```
