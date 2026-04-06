@@ -11,8 +11,7 @@ This document provides the full deployment process for setting up a Dockerized m
 - Instance Type: `t3.small`
 - Key pair: `mykey`
 - Auto assign public IP: enabled
-- Security group: allow all traffic(for demo purpose)
-
+- Security group: Allow all traffic ⚠️ For demo purposes only — restrict in production
 ---
 
 ## 2. Connect to the EC2 Instance
@@ -26,7 +25,12 @@ $ yum install docker -y
 $ systemctl start docker
 $ systemctl status docker
 ```
-
+### Install Docker Compose
+```
+$ curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+$ chmod +x /usr/local/bin/docker-compose
+$ docker-compose --version
+```
 ### Install Git
 ```
 $ yum install git -y
@@ -36,7 +40,8 @@ $ git --version
 ## 3. Clone the Application Repository
 
 ### Fork Repository
-`$ https://github.com/username/docker-voting-app-new.git`
+Fork the repository to your GitHub account:
+[https://github.com/username/docker-voting-app-new](https://github.com/username/docker-voting-app-new)
 
 ### Clone Repository on EC2
 ```
@@ -71,45 +76,20 @@ $ cd ..
 ### Verify Docker Images
 `$ docker images`
 
-## 5. Create Docker Compose File
+## 5. Verify Docker Compose File
 
-### Create docker-compose.yml
-$ vi docker-compose.yml
+### Review docker-compose.yaml
+The `docker-compose.yaml` is already included in the repository.
+Review it before deploying:
 ```
-version: "3"
-
-services:
-  redis:
-    image: redis
-
-  db:
-    image: postgres
-    ports:
-      - "2345:5432"
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-
-  vote:
-    image: vote
-    ports:
-      - "1000:80"
-    links:
-      - redis
-
-  worker:
-    image: worker
-    links:
-      - redis
-      - db
-
-  result:
-    image: result
-    ports:
-      - "1001:80"
-    links:
-      - db
+$ cat docker-compose.yaml
 ```
+OR
+If you need to create it manually:
+```
+$ vi docker-compose.yaml
+```
+---
 ## 6. Deploy the Application
 
 ### Start All Services
@@ -131,3 +111,4 @@ services:
 If the setup is correct, the voting page and live results page will load successfully.
 
 ---
+> ✅ Deployment complete. The voting app is now running on your EC2 instance.
